@@ -8,7 +8,7 @@
     "dev": "nodemon src/server.js"
   },
   "keywords": ["express", "postgresql", "crud"],
-  "author": "Seu Nome",
+  "author": "Rafael",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2",
