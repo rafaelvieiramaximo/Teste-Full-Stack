@@ -4,6 +4,7 @@ import UserList from "./components/UserList";
 import UserForm from "./components/UserForm";
 import { userService } from "./services/api";
 
+console.log('🚀 App.jsx está carregando!');
 function App() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -94,5 +95,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
