@@ -18,7 +18,7 @@ function App() {
   const loadUsers = async () => {
     try {
       setLoading(true);
-      const data = await userService.getUsers();
+      const data = await userService.getAllUser();
       setUsers(data);
     } catch (error) {
       setMessage({ text: 'Erro ao carregar usuários', type: 'error' });
