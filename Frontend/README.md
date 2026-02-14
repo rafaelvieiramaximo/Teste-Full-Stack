@@ -245,6 +245,3 @@ Isso gera uma pasta `dist/` com os arquivos otimizados para produção.
 4. Push para a branch (`git push origin feature/nova-feature`)
 5. Abra um Pull Request
 
-## 📄 Licença
-
-Este projeto está sob a licença MIT.
