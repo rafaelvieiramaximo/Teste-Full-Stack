@@ -133,10 +133,7 @@ Abra o navegador em: **http://localhost:5173**
 ## 📸 Screenshots
 
 ### Tela Principal
-![Interface principal com lista de usuários]
-
-### Formulário de Criação
-![Formulário para adicionar novo usuário]
+![alt text](image.png)
 
 ## 🐳 Docker
 
