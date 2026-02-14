@@ -36,7 +36,7 @@ function App() {
   }
 
   const handleSubmit = async (formData) => {
-    try{
+    try {
       if (editingUser) {
         await userService.updateUser(editingUser.id, formData);
         showMessage('Usuário atualizado com sucesso');
@@ -76,5 +76,23 @@ function App() {
     }
   }
 
-  
+  return (
+    <div className="app">
+      <header className="app-header">
+        <h1>Gerenciamento de Usuários</h1>
+        <p>Lista de usuários cadastrados no sistema</p>
+      </header>
+
+      {message.text && (<div className={`message ${message.type}`}>
+        {message.text}
+      </div>)}
+
+      <main>
+        <UserForm onSubmit={handleSubmit} editingUser={editingUser} onCancel={handleCancelEdit} />
+        <UserList users={users} loading={loading} onEdit={handleEdit} onDelete={handleDelete} />
+      </main>
+    </div>
+  );
 }
+
+export default App;
