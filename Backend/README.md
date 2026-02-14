@@ -4,7 +4,7 @@ API REST desenvolvida em Node.js com Express para gerenciar usuários (CRUD comp
 
 ## 🚀 Tecnologias
 
-- **Node.js** v22.16.0.
+- **Node.js** v18+ (ou superior)
 - **Express** - Framework web
 - **PostgreSQL** - Banco de dados relacional
 - **Docker** - Containerização do banco
@@ -21,29 +21,39 @@ Antes de começar, certifique-se de ter instalado:
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [Git](https://git-scm.com/)
 
-## 🔧 Instalação(Use o bash como terminal para executar os comandos abaixo)
+## 🔧 Instalação
 
 ### 1. Clone o repositório
-```git clone <url-do-repositorio>
+```bash
+git clone <url-do-repositorio>
 cd backend
+```
 
 ### 2. Instale as dependências
-```npm install
+```bash
+npm install
+```
 
 ### 3. Configure as variáveis de ambiente
 
 Crie um arquivo `.env` na raiz do backend (use o `.env.example` como referência):
-```envDatabase
+```env
+# Database
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=admin
 DB_PASSWORD=admin123
-DB_NAME=users_crudServer
+DB_NAME=users_crud
+
+# Server
 PORT=3000
 NODE_ENV=development
+```
 
 ### 4. Inicie o banco de dados PostgreSQL com Docker
-```docker-compose up -d
+```bash
+docker-compose up -d
+```
 
 Isso irá:
 - Criar um container PostgreSQL
@@ -52,112 +62,146 @@ Isso irá:
 - Expor o banco na porta `5432`
 
 ### 5. Inicie o servidor
-```npm run dev
+```bash
+npm run dev
+```
 
 O servidor estará rodando em: **http://localhost:3000**
 
 ## 📡 Endpoints da API
 
 ### **Listar todos os usuários**
-```httpGET /api/users
+```http
+GET /api/users
+```
 
 **Resposta (200 OK):**
-```json[
-{
-"id": 1,
-"name": "João Silva",
-"email": "joao@example.com",
-"role": "admin",
-"created_at": "2026-02-14T10:30:00.000Z"
-}
+```json
+[
+  {
+    "id": 1,
+    "name": "João Silva",
+    "email": "joao@example.com",
+    "role": "admin",
+    "created_at": "2026-02-14T10:30:00.000Z"
+  }
 ]
+```
 
 ---
 
 ### **Buscar usuário por ID**
-```httpGET /api/users/:id
+```http
+GET /api/users/:id
+```
 
 **Resposta (200 OK):**
-```json{
-"id": 1,
-"name": "João Silva",
-"email": "joao@example.com",
-"role": "admin",
-"created_at": "2026-02-14T10:30:00.000Z"
+```json
+{
+  "id": 1,
+  "name": "João Silva",
+  "email": "joao@example.com",
+  "role": "admin",
+  "created_at": "2026-02-14T10:30:00.000Z"
 }
+```
 
 **Resposta (404 Not Found):**
-```json{
-"error": "Não encontrado",
-"message": "Usuário não encontrado"
+```json
+{
+  "error": "Não encontrado",
+  "message": "Usuário não encontrado"
 }
+```
 
 ---
 
 ### **Criar novo usuário**
-```httpPOST /api/users
-Content-Type: application/json{
-"name": "Maria Santos",
-"email": "maria@example.com",
-"role": "user"
+```http
+POST /api/users
+Content-Type: application/json
+
+{
+  "name": "Maria Santos",
+  "email": "maria@example.com",
+  "role": "user"
 }
+```
 
 **Resposta (201 Created):**
-```json{
-"id": 2,
-"name": "Maria Santos",
-"email": "maria@example.com",
-"role": "user",
-"created_at": "2026-02-14T10:35:00.000Z"
+```json
+{
+  "id": 2,
+  "name": "Maria Santos",
+  "email": "maria@example.com",
+  "role": "user",
+  "created_at": "2026-02-14T10:35:00.000Z"
 }
+```
 
 **Resposta (400 Bad Request):**
-```json{
-"error": "Erro de validação",
-"message": "Nome é obrigatório, Email é obrigatório"
+```json
+{
+  "error": "Erro de validação",
+  "message": "Nome é obrigatório, Email é obrigatório"
 }
+```
 
 **Resposta (409 Conflict):**
-```json{
-"error": "Conflito",
-"message": "Email já cadastrado"
+```json
+{
+  "error": "Conflito",
+  "message": "Email já cadastrado"
 }
+```
 
 ---
 
 ### **Atualizar usuário**
-```httpPUT /api/users/:id
-Content-Type: application/json{
-"name": "João Silva Atualizado",
-"email": "joao.novo@example.com",
-"role": "super-admin"
+```http
+PUT /api/users/:id
+Content-Type: application/json
+
+{
+  "name": "João Silva Atualizado",
+  "email": "joao.novo@example.com",
+  "role": "super-admin"
 }
+```
 
 **Resposta (200 OK):**
-```json{
-"id": 1,
-"name": "João Silva Atualizado",
-"email": "joao.novo@example.com",
-"role": "super-admin",
-"created_at": "2026-02-14T10:30:00.000Z"
+```json
+{
+  "id": 1,
+  "name": "João Silva Atualizado",
+  "email": "joao.novo@example.com",
+  "role": "super-admin",
+  "created_at": "2026-02-14T10:30:00.000Z"
 }
+```
 
 ---
 
 ### **Deletar usuário**
-```httpDELETE /api/users/:id
+```http
+DELETE /api/users/:id
+```
 
 **Resposta (200 OK):**
-```json{
-"message": "Usuário deletado com sucesso",
-"id": 1
+```json
+{
+  "message": "Usuário deletado com sucesso",
+  "id": 1
 }
+```
 
 **Resposta (404 Not Found):**
-```json{
-"error": "Não encontrado",
-"message": "Usuário não encontrado"
+```json
+{
+  "error": "Não encontrado",
+  "message": "Usuário não encontrado"
 }
+```
 
 ## 🗄️ Estrutura do Banco de Dados
 
@@ -171,7 +215,9 @@ Content-Type: application/json{
 | role        | VARCHAR(100) | -                       |
 | created_at  | TIMESTAMP    | DEFAULT CURRENT_TIMESTAMP |
 
-## 📁 Estrutura do Backend/
+## 📁 Estrutura de Pastas
+```
+backend/
 ├── db/
 │   └── init.sql              # Script de inicialização do banco
 ├── src/
@@ -192,38 +238,52 @@ Content-Type: application/json{
 ├── docker-compose.yml        # Configuração do Docker
 ├── package.json
 └── README.md
+```
 
 ## 🧪 Testando a API
 
-### Usando URL:
-```Listar usuários
+### Usando cURL:
+```bash
+# Listar usuários
 curl http://localhost:3000/api/users
-```Criar usuário
-curl -X POST http://localhost:3000/api/users 
--H "Content-Type: application/json" 
--d '{"name":"Teste","email":"teste@example.com","role":"user"}'
+
+# Criar usuário
+curl -X POST http://localhost:3000/api/users \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Teste","email":"teste@example.com","role":"user"}'
+```
 
 ### Usando Postman/Insomnia:
 
 Importe a collection ou teste manualmente os endpoints acima.
 
 ## 🐳 Comandos Docker Úteis
-```Iniciar containers
-docker-compose up -d
-```Parar containers
-docker-compose down
-```Ver logs
-docker-compose logs -f
-```Acessar o PostgreSQL via terminal
-docker exec -it users_crud_db psql -U admin -d users_crud
-```Reiniciar tudo (apaga dados!)
-docker-compose down -v
+```bash
+# Iniciar containers
 docker-compose up -d
 
+# Parar containers
+docker-compose down
+
+# Ver logs
+docker-compose logs -f
+
+# Acessar o PostgreSQL via terminal
+docker exec -it users_crud_db psql -U admin -d users_crud
+
+# Reiniciar tudo (apaga dados!)
+docker-compose down -v
+docker-compose up -d
+```
+
 ## 🛠️ Scripts Disponíveis
-```Modo desenvolvimento (com nodemon)
-npm run devModo produção
+```bash
+# Modo desenvolvimento (com nodemon)
+npm run dev
+
+# Modo produção
 npm start
+```
 
 ## 🔒 Validações Implementadas
 
