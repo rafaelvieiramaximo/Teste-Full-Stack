@@ -6,8 +6,8 @@
 }
 
 :root {
-  --primary: #6366f1;
-  --primary-dark: #4f46e5;
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
   --success: #10b981;
   --danger: #ef4444;
   --warning: #f59e0b;
@@ -25,7 +25,7 @@
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
   --radius: 8px;
 }
-/* Verificar essas fontes*/
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
@@ -52,7 +52,6 @@ body {
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
-  text-shadow: none;
 }
 
 .app-header p {
@@ -100,8 +99,7 @@ body {
 .user-form-container {
   background: white;
   padding: 2rem;
-  border-top-left-radius: var(--radius);
-  border-top-right-radius: var(--radius);
+  border-radius: var(--radius) var(--radius) 0 0;
   box-shadow: var(--shadow-lg);
 }
 
@@ -140,7 +138,7 @@ body {
 .form-group input:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .form-group input.error {
@@ -221,8 +219,7 @@ body {
 .user-list {
   background: white;
   padding: 2rem;
-  border-bottom-left-radius: var(--radius);
-  border-bottom-right-radius: var(--radius);
+  border-radius: 0 0 var(--radius) var(--radius);
   box-shadow: var(--shadow-lg);
 }
 
@@ -322,7 +319,7 @@ body {
   }
 }
 
-/* ========== ANIMAÇÕES fadeIn ========== */
+/* ========== ANIMAÇÕES ========== */
 @keyframes fadeIn {
   from {
     opacity: 0;
