@@ -4,7 +4,7 @@ API REST desenvolvida em Node.js com Express para gerenciar usuários (CRUD comp
 
 ## 🚀 Tecnologias
 
-- **Node.js** v18+ (ou superior)
+- **Node.js** v22.16.0.
 - **Express** - Framework web
 - **PostgreSQL** - Banco de dados relacional
 - **Docker** - Containerização do banco

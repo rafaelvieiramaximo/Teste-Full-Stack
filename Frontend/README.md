@@ -4,7 +4,7 @@ Interface web desenvolvida em React para gerenciar usuários (CRUD completo) com
 
 ## 🚀 Tecnologias
 
-- **React** 18+ - Biblioteca para interfaces
+- **React** v22.16.0.
 - **Vite** - Build tool e dev server
 - **Axios** - Cliente HTTP
 - **CSS3** - Estilização (sem frameworks)

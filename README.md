@@ -42,7 +42,7 @@ teste-fullstack/
 
 ### Pré-requisitos
 
-- [Node.js](https://nodejs.org/) v18+
+- [Node.js](https://nodejs.org/) v22.16.0. ou +18
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [Git](https://git-scm.com/)
 
