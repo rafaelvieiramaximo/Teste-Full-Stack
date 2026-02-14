@@ -237,11 +237,3 @@ Isso gera uma pasta `dist/` com os arquivos otimizados para produção.
 - Em produção, configure a variável `baseURL` no `api.js` para a URL real da API
 - O Vite usa porta `5173` por padrão (configurável em `vite.config.js`)
 
-## 🤝 Contribuindo
-
-1. Fork o projeto
-2. Crie uma branch (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`)
-4. Push para a branch (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
-
