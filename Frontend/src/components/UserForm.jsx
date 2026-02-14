@@ -68,3 +68,5 @@ function UseForm({ onSubmit, onCancel, editingUser }) {
         </div>
     )
 }
+
+export default UseForm;
